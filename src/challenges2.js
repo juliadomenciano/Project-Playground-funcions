@@ -25,13 +25,44 @@ function generatePhoneNumber() {
 }
 
 // Desafio 12
-function triangleCheck() {
-  // seu código aqui
+function triangleCheck(lineA, lineB, lineC) {
+  let a = lineB -lineC
+  let aA = Math.abs(a)
+  let b = lineA -lineC
+  let bB = Math.abs(b)
+  let c = lineB -lineA
+  let cC = Math.abs(c)
+
+  if(lineA > (lineB+lineC) || lineB > (lineA+lineC) || lineC > (lineB+lineA)){
+     return false
+  }
+  else if(lineA < aA || lineB < bB || lineC < cC){
+     return false
+  }
+  else{
+     return true
+  }
 }
 
 // Desafio 13
-function hydrate() {
-  // seu código aqui
+function hydrate(str) {
+  let reg = /\d+/g
+  let nums = str.match(reg)
+  let fNums = []
+  let bebidas = 0
+
+  for(let i in nums){
+    fNums.push(parseInt(nums[i]))
+  }
+  for(let i in fNums){
+    bebidas += fNums[i]
+  }
+  if(bebidas == 1){
+    return bebidas + ' copo de água'
+  }
+  else{
+    return bebidas + ' copos de água'
+  }
 }
 
 module.exports = {
